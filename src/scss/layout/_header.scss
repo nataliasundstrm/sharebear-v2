@@ -1,0 +1,80 @@
+.header {
+    display: grid;
+    grid-template-columns: var(--grid-container);
+    height: var(--menu-height);
+    background-color: none;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    transition: all 0.5s;
+    
+    &--scrolled {
+        height: var(--menu-height);
+        background-color: var(--color-light);
+    }
+    
+    &__inner {
+        grid-column: inner;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+}
+
+.branding {
+    color: var(--color-dark);
+    font-weight: 500;
+    font-size: var(--font-size-2);
+} 
+
+.menu-button {
+    background: none;
+    border: 0;
+    padding: 0;
+    height: 40px;
+    width: 26px;
+    cursor: pointer;
+}
+
+.menu-button__hamburger {
+    height: 2px;
+    width: 100%;
+    background: var(--color-medium);
+    position: relative;
+}
+
+.menu-button__hamburger::before, 
+.menu-button__hamburger::after {
+    content: '';
+    height: 2px;
+    width: 100%;
+    background: inherit;
+    position: absolute;
+    left: 0;
+    transition: all 0.3;
+}
+
+// Översta sträcket 
+.menu-button__hamburger::before {
+    top: -8px;
+}
+
+// Understa sträcket
+.menu-button__hamburger::after {
+    top: 8px;
+}
+
+// När vi klickar på hamburgermenyn går sträcken ihop till ett minustecken
+.menu-button--close .menu-button__hamburger::before,
+.menu-button--close .menu-button__hamburger::after {
+    top: 0;
+}
+
+.menu-button--close .menu-button__hamburger, 
+.menu-button--close .menu-button__hamburger::before,
+.menu-button--close .menu-button__hamburger::after {
+    background-color: var(--color-accent-light);
+}

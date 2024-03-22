@@ -1,0 +1,58 @@
+.hero {
+    // min-height: calc(100vh + var(--section-gap-inner)); gör att
+    // herosektionen täcker upp hela ytan av skärmen (100vh) och att
+    // bilden som överlappar vår hero ej syns förens vi scrollar på sidan (var (--section-gap-inner))
+    display: grid;
+    grid-template-columns: var(--grid-container);
+    min-height: calc(100vh + var(--section-gap-inner));
+    width: 100%;
+    background-color: var(--color-accent-light);
+    
+    /* Centrerar hela boxen */
+    &__inner {
+        grid-column: inner;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Centrerar innehållet */
+    &__content {
+        max-width: var(--content-width-small);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title, &__text {
+        margin: 0;
+    }
+
+    &__title {
+        padding-top: 1rem;
+    }
+
+    &__text {
+        padding: 1.5rem 0 2.5rem 0;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .link__icon {
+        margin-right: 0.75rem;
+    }
+
+    .link--grayscale {
+        fill: var(--color-dark);
+    }
+
+    .link__arrow {
+        fill: none;
+        stroke: var(--color-light);
+        stroke-linecap: round;
+    }
+}
